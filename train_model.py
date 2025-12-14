@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -242,8 +243,10 @@ def main():
             pr_df.to_csv("pr_curve.csv", index=False)
 
     # 10. 儲存最佳模型
-    joblib.dump(best_model, 'drowsiness_model.pkl')
-    print(f"Saved best model '{best_name}' to drowsiness_model.pkl")
+    model_path = Path("models") / "drowsiness_model.pkl"
+    model_path.parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump(best_model, model_path)
+    print(f"Saved best model '{best_name}' to {model_path}")
 
 
 if __name__ == "__main__":

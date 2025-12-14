@@ -1,27 +1,22 @@
-# Python
+# Ignore data directory
+data/
+training_data.csv
+training_data_clean.csv
+
+# Ignore python artifacts
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-env/
+.ipynb_checkpoints/
 .venv/
+env/
 venv/
-ENV/
-env.bak/
-venv.bak/
+*.pkl
+!models/drowsiness_model.pkl
 
-# Data and Models
-*.csv
-*.md
-!README.md
-/data/
-
-# IDE and OS files
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
+# Ignore OS files
 .DS_Store
 Thumbs.db
+
+# Ignore local config
+.vscode/
+.idea/

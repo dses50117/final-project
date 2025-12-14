@@ -64,7 +64,6 @@ def calculate_ear(eye_points, landmarks):
 
 def calculate_mar(mouth_points, landmarks):
     p = [landmarks[i] for i in mouth_points]
-    A = dist.euclidean((p[1].x, p[7].x), (p[7].x, p[7].y))
     A = dist.euclidean((p[1].x, p[1].y), (p[7].x, p[7].y))
     B = dist.euclidean((p[2].x, p[2].y), (p[6].x, p[6].y))
     C = dist.euclidean((p[3].x, p[3].y), (p[5].x, p[5].y))
