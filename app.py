@@ -170,9 +170,9 @@ class DrowsinessProcessor(VideoProcessorBase):
         # Parameter initialization
         self.use_adaptive_ear = True
         self.calibration_seconds = 10
-        self.k_factor = 2.0
-        self.ear_threshold = 0.25
-        self.closed_seconds = 1.0
+        self.k_factor = 3.0  # Increased for more sensitive adaptive threshold
+        self.ear_threshold = 0.25  # Raised to detect closed eyes more easily
+        self.closed_seconds = 0.8  # Reduced to trigger alert faster
         self.alert_prob_threshold = 0.3
         self.consec_frames = 1
         
@@ -348,8 +348,8 @@ with st.sidebar:
         st.info("💡 Calibration starts automatically when camera is enabled")
     
     alert_th = st.slider("Model Sensitivity (Prob)", 0.1, 0.9, 0.5)
-    ear_th = st.slider("EAR Threshold", 0.15, 0.35, 0.23)
-    closed_time = st.slider("Eyes Closed Alert Time (seconds)", 0.5, 3.0, 1.5)
+    ear_th = st.slider("EAR Threshold", 0.15, 0.50, 0.25)  # Increased default and max
+    closed_time = st.slider("Eyes Closed Alert Time (seconds)", 0.3, 3.0, 0.8)  # Reduced default
     mar_th = st.slider("MAR Yawn Threshold", 0.5, 0.8, 0.65)
     yawn_frames = st.slider("Yawn Consecutive Frames", 1, 5, 4)
 
